@@ -11,3 +11,55 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.containerLogin {
+  display: flex;
+  justify-content: center;
+}
+
+.loginBox {
+  margin-top: 10%;
+  padding: 5%;
+  border: 2px solid black;
+  background: linear-gradient(-10deg, #d3d3d3, #2C2C2C 80%);
+  color: white;
+}
+
+.label {
+  margin: 0;
+  padding: 0;
+  margin-top: 5%;
+  padding-bottom: 1%;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  color: white;
+}
+
+.container {
+  border: 3px solid black;
+  background: linear-gradient(-10deg, #afafaf, #2C2C2C 80%);
+  padding-bottom: 5%;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header {
+  margin-bottom: 3%;
+  font-size: 3em;
+}
+
+.navText {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+}
+
+.navText:hover {
+  color: #666666;
+}
