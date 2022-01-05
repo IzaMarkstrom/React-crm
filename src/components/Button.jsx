@@ -24,8 +24,8 @@ export default function Button(props) {
     return (
         <>
         {props.red ? 
-            <RedButton {...props}>{props.children}</RedButton>
-            : <GreyButton {...props}>{props.children}</GreyButton>
+            <RedButton {...props}></RedButton>
+            : <GreyButton {...props}></GreyButton>
         }   
         </>
     )
