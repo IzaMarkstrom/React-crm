@@ -10,6 +10,7 @@ export default function DetailPage() {
 
     const navigate = useNavigate();
 
+    const url = `https://frebi.willandskill.eu/api/v1/customers/${id}/`
     const token = localStorage.getItem("crm")
     const headers = {
         "Content-Type": "application/json",
@@ -19,29 +20,31 @@ export default function DetailPage() {
     const [post, setPostList] = useState(null)
 
     useEffect(() => {
-        const url = `https://frebi.willandskill.eu/api/v1/customers/`
         fetch(url, {
             headers: headers
         })
         .then(res => res.json())
-        .then(data => setPostList(data.results))
+        .then(data => setPostList(data)) // SKA INTE VARA data.results
     }, [])
 
-    function checkCustomerList2() {
-        if (post) {
-           for(let i = 0; i < post.length; i++){
-               if(post[i].id == id) {
-                   return post[i]
-               }
-           }
-          }
-       }
+
+
+
+
+    // function checkCustomerList() {
+    //     if (post) {
+    //        for(let i = 0; i < post.length; i++){
+    //            if(post[i].id == id) {
+    //                return post[i]
+    //            }
+    //        }
+    //       }
+    //    }
    
-    const customer = checkCustomerList2()
+    // const customer = checkCustomerList()
 
     function handleOnDelete() {
-        const url2 = `https://frebi.willandskill.eu/api/v1/customers/${id}/`
-        fetch(url2, {
+        fetch(url, {
           method: "DELETE",
           headers: headers,
         })
@@ -53,10 +56,10 @@ export default function DetailPage() {
             <h2 className="header text-center">Detail Page</h2>
             <Navbar/>
             <div className="col">
-                {customer && (
+                {post && (
                     <>
                     {console.log(id)}
-                         <p>Customer information about {customer.name}:</p>
+                         <p>Customer information about {post.name}:</p>
             
                          <table className="table table-light table-hover border border-secondary border-2">
                              <thead>
@@ -74,15 +77,15 @@ export default function DetailPage() {
                              </thead>
                              <tbody>
                                  <tr>
-                                     <td><h5>{customer.name}</h5></td>
-                                     <td><h5>{customer.reference}</h5> </td>
-                                     <td>{customer.email}</td>
-                                     <td>{customer.phoneNumber}</td>
-                                     <td>{customer.website}</td>
-                                     <td>{customer.id}</td>
-                                     <td>{customer.organisationNr}</td>
-                                     <td>{customer.vatNr}</td>
-                                     <td>{customer.paymentTerm}</td>
+                                     <td><h5>{post.name}</h5></td>
+                                     <td><h5>{post.reference}</h5> </td>
+                                     <td>{post.email}</td>
+                                     <td>{post.phoneNumber}</td>
+                                     <td>{post.website}</td>
+                                     <td>{post.id}</td>
+                                     <td>{post.organisationNr}</td>
+                                     <td>{post.vatNr}</td>
+                                     <td>{post.paymentTerm}</td>
                                      </tr>
                              </tbody>
                          </table>
